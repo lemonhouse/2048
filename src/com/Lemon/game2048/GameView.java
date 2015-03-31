@@ -121,7 +121,7 @@ public class GameView extends GridLayout {
 	}
 	
 	//©╙й╪сно╥
-	private void startGame(){
+	public void startGame(){
 		MainActivity.getMainActivity().clearScore();
 		for (int y = 0; y < 4; y++) {
 			for (int x = 0; x < 4; x++) {

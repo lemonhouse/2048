@@ -1,10 +1,14 @@
 package com.Lemon.game2048;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -17,8 +21,12 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	private TextView tvScore;
+	private TextView tvBestScore;
 	private static MainActivity mainActivity=null;
 	private int score=0;
+	private GameView gameView;
+	private Button btnNewGame;
+	public static final String SP_KEY_BEST_SCORE = "bestScore";
 	
 	public static MainActivity getMainActivity() {
 		return mainActivity;
@@ -28,6 +36,16 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tvScore=(TextView)findViewById(R.id.tvScore);
+        tvBestScore=(TextView)findViewById(R.id.tvBestScore);
+        gameView=(GameView)findViewById(R.id.gameView);
+        btnNewGame=(Button)findViewById(R.id.btnNewGame);
+        btnNewGame.setOnClickListener(new View.OnClickListener() {
+        //animLayout=(AnimLayout) findViewById(R.id.animLayer);
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				gameView.startGame();
+			}
+		});
         
     }
 
@@ -64,6 +82,22 @@ public class MainActivity extends ActionBarActivity {
     //显示分数
     public void showScore() {
 		tvScore.setText(score+"");
+		int maxScore = Math.max(score, getBestScore());
+		saveBestScore(maxScore);
+		showBestScore(maxScore);
+	}
+	private void showBestScore(int s) {
+		tvBestScore.setText("最高分："+s+"");
+		
+	}
+	private void saveBestScore(int s) {
+		Editor e = getPreferences(MODE_PRIVATE).edit();
+		e.putInt(SP_KEY_BEST_SCORE, s);
+		e.commit();		
+	}
+	private int getBestScore() {
+		return getPreferences(MODE_PRIVATE).getInt(SP_KEY_BEST_SCORE, 0);
+		
 	}
     
 }
