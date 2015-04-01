@@ -28,6 +28,7 @@ public class GameView extends GridLayout {
 	private Card[][] cardsmap = new Card[4][4];//初始化一个卡片数组，方便操作
 	private List<Point> emptyPoints=new ArrayList<Point>();//定义空点的集合
 	private boolean morge=false;//定义判断有动作，默认为false
+	private GameView gameView;
 	
 	public GameView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -38,12 +39,14 @@ public class GameView extends GridLayout {
 	public GameView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		 //TODO Auto-generated constructor stub
+		
 		initGameView();
 	}
 
 	public GameView(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
+		
 		initGameView();
 	}
 	

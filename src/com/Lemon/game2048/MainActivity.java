@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 	
-	//ÎªÁËÔÚÍâ½ç·ÃÎÊMainActivityµÄÊµÀı
+	//ä¸ºé”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·MainActivityé”Ÿæ–¤æ‹·å®é”Ÿæ–¤æ‹·
 	public MainActivity(){
-		//Ò»µ©¹¹½¨¾Í¸øMainActivityµÄ¾²Ì¬±äÁ¿¸³Öµ£¬´ÓÍâ½ç¾Í¿ÉÒÔ·ÃÎÊ
+		//ä¸€é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿé…µé©æ‹·MainActivityé”Ÿä¾¥æ’…æ‹·æ€é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·å€¼é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿé…µåŒ¡æ‹·é”Ÿçš†å‡¤æ‹·é”Ÿæ–¤æ‹·
 		mainActivity=this;
 	}
 
@@ -69,17 +69,17 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     
-    //Çå¿Õ¼Æ·Ö
+    //é”Ÿæ–¤æ‹·å å“é”Ÿï¿½
     public void clearScore(){
     	score=0;
     	showScore(); 
     }
-    //ºÏ¼Æ·ÖÊı
+    //é”Ÿè¾ƒè®¡å‡¤æ‹·é”Ÿæ–¤æ‹·
     public void addScore(int s) {
 		score+=s;
 		showScore();
 	}
-    //ÏÔÊ¾·ÖÊı
+    //é”Ÿæ–¤æ‹·ç¤ºé”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·
     public void showScore() {
 		tvScore.setText(score+"");
 		int maxScore = Math.max(score, getBestScore());
@@ -87,7 +87,7 @@ public class MainActivity extends ActionBarActivity {
 		showBestScore(maxScore);
 	}
 	private void showBestScore(int s) {
-		tvBestScore.setText("×î¸ß·Ö£º"+s+"");
+		tvBestScore.setText("æœ€é«˜åˆ†"+s+"");
 		
 	}
 	private void saveBestScore(int s) {
